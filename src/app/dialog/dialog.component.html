@@ -1,0 +1,50 @@
+<p>Dialog Works!</p>
+  <div class="container-fluid">
+    <h2>User Data</h2>
+    <form 
+    [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" class="form-control" #refName formControlName="name">       
+       <mat-error *ngIf="userForm.controls['name'].hasError('required')" class="container" alert alert-danger>
+        Please enter the name 
+      </mat-error>
+      </mat-form-field>
+     <mat-error *ngIf="userForm.controls['name'].hasError('minlength')" class="container" alert alert-danger>
+        Please enter  4 chars 
+     </mat-error>
+      <mat-error *ngIf="userForm.controls['name'].hasError('maxlength')" class="container" alert alert-danger>
+        Please enter only 10 chars 
+      </mat-error> 
+    
+      </div>
+      <div class="form-group">
+  
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="E-mail" class="form-control" #refemail formControlName="email">
+        </mat-form-field>       
+      </div>
+      <div formGroupName="address">
+        <div class="form-group">
+       
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Street" class="form-control" #refStreet formControlName="street">
+          </mat-form-field>         
+        </div>
+        <div class="form-group">
+         
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="City" class="form-control" #refCity formControlName="city">
+          </mat-form-field>         
+        </div>
+        <div class="form-group">
+          
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Pincode" class="form-control" #refPincode formControlName="pincode">
+          </mat-form-field>         
+         </div>
+      </div>
+       
+      <button mat-mini-fab color="warn">Save</button>
+    
+
